@@ -1,0 +1,72 @@
+.shoe_section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem 0;
+    
+}
+
+.add_shoe{
+    background-color: #e1e1e1;
+    border-radius: 12px;
+    padding: 2rem;
+    height: 50vh;
+}
+
+h2{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+form > label{
+    font-weight: bold;
+}
+
+
+.shoes_list{
+    height: 50vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #e1e1e1;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    padding: 2rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.shoe{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    padding: 1rem 2rem 2rem 2rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.photo{
+    width: 10rem;
+    height: 10rem;
+    align-self: center;
+    border-radius: 50%;
+    background-color: cadetblue;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.shoe > p {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+
+
+a > button{
+    margin: 0;
+    text-decoration: none
+}

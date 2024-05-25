@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'shoe.css' %}">
+    <link rel="stylesheet" href="{% static 'header.css' %}">
+
+    <title>Shoe Creator</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="{%url 'index' %}"><button>Back to Create Project</button></a>
+            <h1>Shoe Creator</h1>
+        </div>
+    </header>
+    <section class="shoe_section">
+        <div class="container">
+            <div class="add_shoe">
+                <h2>Add a New Shoe</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="id_brand">Brand:</label>
+                    {{ shoe_form.brand }}
+                  
+                    {{ shoe_form.model }}
+                 
+                    {{ shoe_form.size }}
+                    
+                    {{ shoe_form.price }}
+                    <label for="id_photo">Photo:</label>
+                    {{ shoe_form.photo }}
+                    <button type="submit">Add Shoe</button>
+                </form>
+            </div>
+            <div class="shoes_list">
+                    <h2>All Shoes</h2>
+                    {% for shoe in shoes %}
+                    <div class="shoe">
+                        <img class="photo" src="{{ shoe.photo.url }}" alt="{{ shoe.brand.name }}">
+                        <p>{{ shoe.brand.name }} - {{ shoe.model }}</h3>
+                        <p>Size: {{ shoe.size }}</p>
+                        <p>Price: {{ shoe.price }}</p>                        
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </section>
+</body>
+</html>

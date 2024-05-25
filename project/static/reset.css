@@ -83,11 +83,13 @@ input[type="file"] {
     border: none;
     color:#000;
     padding:0.5rem 1rem ;
-    margin-top: 1rem;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
-
+#id_brand{
+    padding: 0.5rem 0;
+    border-radius: 6px;
+}
 
 
 button {

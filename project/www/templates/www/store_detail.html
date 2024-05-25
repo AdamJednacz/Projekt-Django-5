@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'store_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'header.css' %}">
+    <link rel="stylesheet" href="{% static 'shoe.css' %}">
+    <title>{{ store.name }}</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container"> 
+        <a href="{% url 'index' %}"><button>Back to Create Project</button></a>
+        </div>  
+    </header>
+    <section class="store_detail">
+        <div class="container">
+            <div class="shoes_list">
+                <h2>All Shoes</h2>
+                {% for shoe in shoe_list %}
+                <div class="shoe">
+                    <img class="photo" src="{{ shoe.photo.url }}" alt="{{ shoe.brand.name }}">
+                    <p>{{ shoe.brand.name }} - {{ shoe.model }}</h3>
+                    <p>Size: {{ shoe.size }}</p>
+                    <p>Price: {{ shoe.price }}</p>
+                    <form action="{% url 'store_detail' store.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="shoe_id" value="{{ shoe.id }}">
+                        <button type="submit">Add</button>
+                    </form>                                        
+                </div>
+                {% endfor %}
+            </div>
+          
+            <div class="added_shoes_list">
+                <h2>Added Shoes</h2>
+                    {% for shoe in added_shoe_list %}
+                    <div class="added_shoe">
+                        <img class="photo" src="{{ shoe.photo.url }}" alt="{{ shoe.brand.name }}">
+                        <p>{{ shoe.brand.name }} - {{ shoe.model }}</h3>
+                        <p>Size: {{ shoe.size }}</p>
+                        <p>Price: {{ shoe.price }}</p>                        
+                    </div>
+                    {% endfor %}
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>
