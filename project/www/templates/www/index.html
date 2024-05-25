@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <title>Shoe Wholesaler</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Shoe Wholesaler</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="add_shoe">
+                <h2>Add a New Shoe</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="id_brand">Brand:</label>
+                    {{ shoe_form.brand }}
+                    <label for="id_model">Model:</label>
+                    {{ shoe_form.model }}
+                    <label for="id_size">Size:</label>
+                    {{ shoe_form.size }}
+                    <label for="id_price">Price:</label>
+                    {{ shoe_form.price }}
+                    <label for="id_photo">Photo:</label>
+                    {{ shoe_form.photo }}
+                    <button type="submit">Add Shoe</button>
+                </form>
+            </div>
+            <div>
+                <h2>All Shoes</h2>
+                <div>
+                    {% for shoe in shoes %}
+                    <div>
+                        <h3>{{ shoe.brand.name }} - {{ shoe.model }}</h3>
+                        <p>Size: {{ shoe.size }}</p>
+                        <p>Price: {{ shoe.price }}</p>
+                        
+                        <img src="{{ shoe.photo.url }}" alt="{{ shoe.brand.name }}" style="max-width: 200px;">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
