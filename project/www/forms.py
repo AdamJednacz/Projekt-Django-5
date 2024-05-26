@@ -1,7 +1,7 @@
 
 
 from django import forms
-from .models import Shoe, Brand
+from .models import Shoe, Brand,Store
 
 class ShoeForm(forms.ModelForm):
     brand= forms.ModelChoiceField(queryset=Brand.objects.all(), widget=forms.Select(attrs={'placeholder': 'Select a brand'}))
@@ -14,3 +14,5 @@ class ShoeForm(forms.ModelForm):
     class Meta:
         model = Shoe
         fields = '__all__'
+
+

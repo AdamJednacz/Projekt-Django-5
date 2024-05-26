@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="container">
-            <a href="{%url 'index' %}"><button>Back to Create Project</button></a>
+            <a href="{%url 'index' %}"><button>Back to Home</button></a>
             <h1>Shoe Creator</h1>
         </div>
     </header>
@@ -25,7 +25,7 @@
                     {% csrf_token %}
                     <label for="id_brand">Brand:</label>
                     {{ shoe_form.brand }}
-                  
+                    
                     {{ shoe_form.model }}
                  
                     {{ shoe_form.size }}

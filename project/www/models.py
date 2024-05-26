@@ -12,7 +12,7 @@ class Shoe(models.Model):
     size = models.CharField(max_length=50)
     price = models.CharField(max_length=50)
     photo = models.ImageField(upload_to='images')
-    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)  # Dodano relację ForeignKey do Brand
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE) 
    
     def __str__(self):
         return f"{self.brand.name} - {self.model}"
